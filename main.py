@@ -4,8 +4,9 @@ import sys
 
 indent = 0
 
-l = {'testbb' : {'cc': 1, 'bb': 2}, 'test': {'hey' : 0, 'hi' : {'my' : 2, 'name' : 2}}, 'weee' : 'hhooooo', 'wow' : {'thats' : 1, 'really' : 2, 'cool' : 3}}
+l = {'commands' : {}, 'common' : {}, 'projects' : {}}
 def get_tag_list():
+    print('┐')
     def seperation(indent):
         tmp = ''
         for i in range(indent):
@@ -32,10 +33,7 @@ def get_tag_list():
                     tmp = '{}┘{} * '
 
                 if isinstance(i,dict):
-                    if x == 1:
-                        print('{}├┐{} * '.format(seperation(indent),k))
-                    if x > 1:
-                        print('{}├┐{} *'.format(seperation(indent),k))
+                    print('{}├┬[{}] '.format(seperation(indent),k))
                     
 
                     indent += 1 
@@ -45,6 +43,7 @@ def get_tag_list():
                 else:
                     print('{}├{}'.format(seperation(indent),k))
     get_dict(l,indent)
+    print('┘')
 get_tag_list()
                     
 
